@@ -1,10 +1,10 @@
+import EventsList from "./components/Events-List/Events-List"
 
 function App() {
 
-
   return (
     <>
-      <h1>init test</h1>
+      <EventsList />
     </>
   )
 }
