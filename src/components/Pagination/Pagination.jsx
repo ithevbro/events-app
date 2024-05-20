@@ -1,13 +1,17 @@
 import style from './pagination.module.css'
+import { useState } from 'react'
 
-function Pagination({ length, currentPageHandler }) {
+function Pagination({ length, currentPageHandler, currentPage }) {
+
+    let lengthForPagination = Math.floor(length / 11)
 
     function makePagination(length) {
         let btnArr = []
-        for (let i = 1; i <= length / 10; i++) {
+        for (let i = 1; i <= lengthForPagination; i++) {
             btnArr.push(
                 <button
-                    onClick={() => currentPageHandler(i)}
+                    id={i === currentPage ? style.active : ''}
+                    onClick={() => { currentPageHandler(i) }}
                     key={i + length}>{i}
                 </button>
             )
@@ -15,14 +19,17 @@ function Pagination({ length, currentPageHandler }) {
         return btnArr
     }
 
-
     return (
         <nav className={style.pagination_wrapper}>
-            <button onClick={() => { currentPageHandler(prev => prev > 2 ? prev - 1 : 1) }}>prev</button>
+            <button className={style.img_wrapper} onClick={() => { currentPageHandler(prev => prev > 2 ? prev - 1 : 1) }}>
+                <img src="/arrow-left-slider.png" alt="" />
+            </button>
 
             {makePagination(length)}
 
-            <button onClick={() => { currentPageHandler(prev => prev < length / 10 ? prev + 1 : (length / 10)) }}>next</button>
+            <button className={style.img_wrapper} onClick={() => { currentPageHandler(prev => prev < lengthForPagination ? prev + 1 : lengthForPagination) }}>
+                <img src="/arrow-right-slider.png" alt="" />
+            </button>
         </nav >
     )
 }

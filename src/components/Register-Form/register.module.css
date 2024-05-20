@@ -1,0 +1,71 @@
+.radio_btn {
+    display: flex;
+    gap: 10px;
+}
+
+.radios_wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.radios_wrapper input {
+    accent-color: rgb(153, 2, 2);
+}
+
+#reg_form {
+    border: 1px solid gray;
+    max-width: 500px;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px black;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#reg_form button {
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+    background-color: rgb(153, 2, 2);
+    color: white;
+    font-size: 16px;
+    border: 1px solid white;
+    transition: all 0.25s;
+}
+
+#reg_form button:hover {
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+    background-color: white;
+    color: rgb(153, 2, 2);
+    font-size: 16px;
+    border: 1px solid rgb(153, 2, 2);
+}
+
+#reg_form span {
+    font-size: 16px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top input {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.bott {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

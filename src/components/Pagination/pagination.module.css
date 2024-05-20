@@ -1,3 +1,34 @@
 .pagination_wrapper button {
     font-size: 20px;
+    border: 1px solid gray;
+    background-color: unset;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.pagination_wrapper {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.img_wrapper {
+    max-height: 37px;
+}
+
+#active {
+    color: rgb(153, 2, 2);
+    border: 2px solid rgb(7, 116, 153);
+    font-weight: 600;
+}
+
+@media(max-width:992px) {
+    .pagination_wrapper button {
+        font-size: 16px;
+        padding: 3px 6px;
+    }
+
+    .img_wrapper {
+        max-height: 29px;
+    }
 }

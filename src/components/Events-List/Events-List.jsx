@@ -16,9 +16,9 @@ function EventsList() {
 
     function makeList(startIndex) {
         let arrList = []
-        let end = (startIndex - 1) * 10 + 12
+        let end = (startIndex - 1) * 12 + 12
 
-        for (let i = (startIndex - 1) * 10; i < end; i++) {
+        for (let i = (startIndex - 1) * 12; i < end; i++) {
             let data = eventsData[i]
             if (data) {
                 let id = eventsData[i].id + end
@@ -33,7 +33,6 @@ function EventsList() {
         setCurrentPage(number)
     }
 
-
     return (
         <div className={style.container}>
             <h1>Events</h1>
@@ -41,7 +40,10 @@ function EventsList() {
             <ul className={style.events_wrapper}>
                 {makeList(currentPage)}
             </ul>
-            <Pagination currentPageHandler={currentPageHandler} length={eventsData.length} />
+            <Pagination
+                currentPage={currentPage}
+                currentPageHandler={currentPageHandler}
+                length={eventsData.length} />
 
         </div>
     )
