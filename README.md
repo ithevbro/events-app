@@ -11,7 +11,7 @@ This repository contains the code for the Events App.
     Enter the server folder
     ```
     Install the dependencies:
-    ```bash
+    ```
     npm install
     ```
     Run the server:
@@ -26,11 +26,10 @@ This repository contains the code for the Events App.
     Enter the client folder
     ```
     Install the dependencies:
-    ```bash
+    ```
     npm install
     ```
     Run the client:
-    ```bash
     npm run dev
     ```
 ## Additional info
