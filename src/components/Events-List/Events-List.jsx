@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 function EventsList() {
 
     const [eventsData, setEventsData] = useState([])
+    const [sortData, setSortData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [loading, setLoading] = useState(true)
     const [selectFilter, setSelectFilter] = useState(null)
@@ -20,6 +21,7 @@ function EventsList() {
                 if (!ignore) {
                     const data = await res.json()
                     setEventsData(data)
+                    setSortData(data)
                     setLoading(false)
                 }
             } catch (error) {
@@ -41,7 +43,7 @@ function EventsList() {
         let end = (start - 1) * 12 + 12
 
         for (let i = (start - 1) * 12; i < end; i++) {
-            let data = eventsData[i]
+            let data = sortData[i]
             if (data) {
                 arrList.push(<EventItem key={data._id} data={data} />)
             }
@@ -55,7 +57,7 @@ function EventsList() {
     }
 
     function sortHandler() {
-        let sortedData = [...eventsData]
+        let sortedData = [...sortData]
 
         switch (selectFilter) {
             case 'DateLatest':
@@ -77,10 +79,11 @@ function EventsList() {
                 sortedData.sort((a, b) => b.organizer.localeCompare(a.organizer))
                 break
             default:
-                break;
+                setSortData(eventsData)
+                return;
         }
 
-        setEventsData(sortedData)
+        setSortData(sortedData)
     }
 
     return (

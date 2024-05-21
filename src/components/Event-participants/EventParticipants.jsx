@@ -55,9 +55,9 @@ function EventParticipants() {
                             </label>
                         </div>
                         <ul className={style.participants}>
-                            {participants.map(item => {
+                            {participants.map((item, index) => {
                                 return (
-                                    <li className={style.item} key={item.email}>
+                                    <li className={style.item} key={index}>
                                         <p>{item.full_name}</p>
                                         <p>{item.email}</p>
                                     </li>

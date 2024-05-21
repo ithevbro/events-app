@@ -8,7 +8,7 @@ function SelectFilter({ setSelectFilter }) {
 
     return (
         <select onChange={handleChange} className={style.select_wrapper} name="" id="">
-            <option value="">Select Filter</option>
+            <option value="">none</option>
             <option value="EventsAtoZ">Events A-Z</option>
             <option value="EventsZtoA">Events Z-A</option>
             <option value="DateLatest">Date latest</option>
