@@ -38,6 +38,17 @@ This repository contains the code for the Events App.
     npm run dev
     ```
 
+## URLS
+
+1. Client is hoseted at: 
+    ```bash
+    https://events-app-zvh8.onrender.com/
+    ```
+2. Server is hosted at: 
+    ```bash
+    https://events-api-server.onrender.com/
+    ```
+
 ## Additional Info
 
 The server repository can be found https://github.com/ithevbro/events-app-api-server.  
