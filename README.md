@@ -8,10 +8,12 @@ This repository contains the code for the Events App.
     ```bash
     git clone https://github.com/ithevbro/events-app-api-server.git
     ```
-    Enter the server folder
+    Enter the server folder:
+    ```bash
+    cd events-app-api-server
     ```
     Install the dependencies:
-    ```
+    ```bash
     npm install
     ```
     Run the server:
@@ -23,16 +25,20 @@ This repository contains the code for the Events App.
     ```bash
     git clone https://github.com/ithevbro/events-app.git
     ```
-    Enter the client folder
+    Enter the client folder:
+    ```bash
+    cd events-app
     ```
     Install the dependencies:
-    ```
+    ```bash
     npm install
     ```
     Run the client:
+    ```bash
     npm run dev
     ```
-## Additional info
-server repo https://github.com/ithevbro/events-app-api-server.
-You need to wait for data fetch, because server is placed on free hosting and loads approximately 1 minute.
 
+## Additional Info
+
+The server repository can be found https://github.com/ithevbro/events-app-api-server.  
+Please note that you need to wait for the data to fetch, as the server is hosted on a free hosting service and may take approximately 1 minute to load.
