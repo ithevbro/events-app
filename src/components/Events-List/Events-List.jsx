@@ -3,7 +3,6 @@ import EventItem from '../Event-Item/Event-item'
 import Pagination from '../Pagination/Pagination'
 import Spiner from '../Loader/Spiner'
 import { useEffect, useState } from 'react'
-const url = 'https://jsonplaceholder.typicode.com/posts'
 
 function EventsList() {
 
@@ -15,7 +14,7 @@ function EventsList() {
         let ignore = false
         async function fetchData() {
             try {
-                const res = await fetch('http://localhost:3000/events')
+                const res = await fetch('https://events-api-server.onrender.com/events')
                 if (!ignore) {
                     const data = await res.json()
                     setEventsData(data)

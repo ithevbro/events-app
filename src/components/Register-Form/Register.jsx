@@ -23,7 +23,7 @@ function Register() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('http://localhost:3000/events/' + id, {
+        fetch('https://events-api-server.onrender.com/events' + id, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

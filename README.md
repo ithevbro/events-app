@@ -1,8 +1,18 @@
-# React + Vite
+# Events app
+This repository contains events app code
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to run
+1.Clone server https://github.com/ithevbro/events-app-api-server.git
+-enter server folder
+-npm install
+-npm run dev
 
-Currently, two official plugins are available:
+2.Clone client https://github.com/ithevbro/events-app.git
+-enter client folder
+-npm install
+-npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Additional info
+server repo https://github.com/ithevbro/events-app-api-server
+You need to wait for data fetch, because server is placed on free hosting and loads approximately 1 minute
+

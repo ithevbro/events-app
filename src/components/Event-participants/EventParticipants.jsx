@@ -12,7 +12,7 @@ function EventParticipants() {
         let ignore = false
         async function fetchData() {
             try {
-                const res = await fetch('http://localhost:3000/events/' + id)
+                const res = await fetch('https://events-api-server.onrender.com/events/' + id)
                 if (!ignore) {
                     const data = await res.json()
                     setEventData(data)
