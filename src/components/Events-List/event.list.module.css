@@ -5,11 +5,6 @@
     padding: 30px;
 }
 
-.container h1 {
-    margin-left: 30px;
-    margin-top: 15px;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -22,14 +17,20 @@
     padding-bottom: 20px;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 30px;
+}
+
 @media(max-width:992px) {
     .events_wrapper {
         gap: 20px;
         padding: 20px;
     }
 
-    .container h1 {
-        margin-left: 20px;
+    .header {
+        margin: 15px 20px;
     }
 }
 
@@ -39,8 +40,7 @@
         padding: 10px;
     }
 
-    .container h1 {
-        margin-left: 10px;
-        margin-top: 10px;
+    .header {
+        margin: 10px;
     }
 }

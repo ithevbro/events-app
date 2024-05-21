@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function Pagination({ length, currentPageHandler, currentPage }) {
 
-    let lengthForPagination = Math.floor(length / 11)
+    let lengthForPagination = Math.ceil(length / 12)
 
     function makePagination(length) {
         let btnArr = []

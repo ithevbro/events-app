@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 function EventParticipants() {
     const [eventData, setEventData] = useState({})
     const [loading, setLoading] = useState(true)
+    const [filteredData, setFilteredData] = useState([])
+    const [searchValue, setSearchValue] = useState('')
     let { id } = useParams()
 
     useEffect(() => {
@@ -26,14 +28,34 @@ function EventParticipants() {
         return () => { ignore = true }
     }, [])
 
+    function filterHandler(e) {
+        const value = e.target.value.toLowerCase()
+        setSearchValue(value)
+        const filtered = eventData.participants.filter(item => {
+            return (
+                item.full_name.toLowerCase().includes(value) ||
+                item.email.toLowerCase().includes(value)
+            )
+        })
+        setFilteredData(filtered)
+    }
+
+    let participants = searchValue.length > 0 ? filteredData : eventData.participants
+
     return (
         <div className={style.wrapper}>
             {
                 loading ? <Spiner /> :
                     <>
-                        <h2>{`"${eventData.title}" participants`}</h2>
+                        <div className={style.top_panal}>
+                            <h2>{`"${eventData.title}" participants`}</h2>
+                            <label htmlFor="search">
+                                <span>Search participants:</span>
+                                <input onChange={filterHandler} value={searchValue} placeholder='enter email or name...' type="search" name="search" id="search" />
+                            </label>
+                        </div>
                         <ul className={style.participants}>
-                            {eventData.participants.map(item => {
+                            {participants.map(item => {
                                 return (
                                     <li className={style.item} key={item.email}>
                                         <p>{item.full_name}</p>

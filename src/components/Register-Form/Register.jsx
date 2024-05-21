@@ -23,14 +23,14 @@ function Register() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('https://events-api-server.onrender.com/events' + id, {
+        fetch('https://events-api-server.onrender.com/events/' + id, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(formData),
         }).then(
-            navigate('/' + id)
+            navigate('/')
         )
     };
 
@@ -39,30 +39,30 @@ function Register() {
             <h2>Event registration</h2>
             <label className={style.top} htmlFor="full_name">
                 <span>Full name</span>
-                <input onChange={formDataHandler} type="text" id="full_name" name='full_name' />
+                <input onChange={formDataHandler} type="text" id="full_name" name='full_name' required/>
             </label>
             <label className={style.top} htmlFor="email">
                 <span>Email</span>
-                <input onChange={formDataHandler} type="email" id="email" name='email' />
+                <input onChange={formDataHandler} type="email" id="email" name='email' required/>
             </label>
             <label className={style.top} htmlFor="date_of_birth">
                 <span>Date of birth</span>
-                <input onChange={formDataHandler} type="date" id="date_of_birth" name='date_of_birth' />
+                <input onChange={formDataHandler} type="date" id="date_of_birth" name='date_of_birth' required/>
             </label>
 
             <div className={style.bott}>
                 <h3>Where did you hear about this event</h3>
                 <div className={style.radios_wrapper}>
                     <label className={style.radio_btn} htmlFor="socials">
-                        <input onChange={formDataHandler} value={'Social media'} type="radio" name="source" id="socials" />
+                        <input onChange={formDataHandler} value={'Social media'} type="radio" name="source" id="socials" required/>
                         <span>Social media</span>
                     </label>
                     <label className={style.radio_btn} htmlFor="friends">
-                        <input onChange={formDataHandler} value={'Friends'} type="radio" name="source" id="friends" />
+                        <input onChange={formDataHandler} value={'Friends'} type="radio" name="source" id="friends" required/>
                         <span>Friends</span>
                     </label>
                     <label className={style.radio_btn} htmlFor="myself">
-                        <input onChange={formDataHandler} value={'Found myself'} type="radio" name="source" id="myself" />
+                        <input onChange={formDataHandler} value={'Found myself'} type="radio" name="source" id="myself" required/>
                         <span>Found myself</span>
                     </label>
                 </div>
