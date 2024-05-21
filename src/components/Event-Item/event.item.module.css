@@ -36,6 +36,12 @@
     cursor: pointer;
 }
 
+.info {
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+
 @media(max-width:1200px) {
     .event {
         width: calc(33.333% - 30px * 2 / 3);

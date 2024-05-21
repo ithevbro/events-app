@@ -1,28 +1,42 @@
 import style from './event.list.module.css'
 import EventItem from '../Event-Item/Event-item'
 import Pagination from '../Pagination/Pagination'
+import Spiner from '../Loader/Spiner'
 import { useEffect, useState } from 'react'
+const url = 'https://jsonplaceholder.typicode.com/posts'
 
 function EventsList() {
 
     const [eventsData, setEventsData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(res => res.json())
-            .then(data => setEventsData(data))
+        let ignore = false
+        async function fetchData() {
+            try {
+                const res = await fetch('http://localhost:3000/events')
+                if (!ignore) {
+                    const data = await res.json()
+                    setEventsData(data)
+                    setLoading(false)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData()
+        return () => { ignore = true }
     }, [])
 
-    function makeList(startIndex) {
+    function makeList(start) {
         let arrList = []
-        let end = (startIndex - 1) * 12 + 12
+        let end = (start - 1) * 12 + 12
 
-        for (let i = (startIndex - 1) * 12; i < end; i++) {
+        for (let i = (start - 1) * 12; i < end; i++) {
             let data = eventsData[i]
             if (data) {
-                let id = eventsData[i].id + end
-                arrList.push(<EventItem key={id} data={data} />)
+                arrList.push(<EventItem key={data._id} data={data} />)
             }
         }
 
@@ -35,16 +49,22 @@ function EventsList() {
 
     return (
         <div className={style.container}>
-            <h1>Events</h1>
+            {loading ? <Spiner /> :
+                <>
+                    <h1>Events</h1>
 
-            <ul className={style.events_wrapper}>
-                {makeList(currentPage)}
-            </ul>
-            <Pagination
-                currentPage={currentPage}
-                currentPageHandler={currentPageHandler}
-                length={eventsData.length} />
+                    <ul className={style.events_wrapper}>
+                        {makeList(currentPage)}
+                    </ul>
 
+                    {eventsData.length > 12 ? <Pagination
+                        currentPage={currentPage}
+                        currentPageHandler={currentPageHandler}
+                        length={eventsData.length} />
+                        : null
+                    }
+                </>
+            }
         </div>
     )
 }
