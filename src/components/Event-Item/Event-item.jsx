@@ -2,7 +2,7 @@ import style from './event.item.module.css'
 import { Link } from 'react-router-dom'
 
 function EventItem({ data }) {
- 
+
     return (
         <li className={style.event}>
             <h3>{data.title}</h3>
@@ -13,7 +13,7 @@ function EventItem({ data }) {
             <p>{data.description}</p>
             <div className={style.buttons}>
                 <button><Link to={'/register/' + data._id}>Register</Link></button>
-                <button><Link to={'/' + data._id}>View</Link></button>
+                <button><Link to={'/events/' + data._id}>View</Link></button>
             </div>
         </li>
     )

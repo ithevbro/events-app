@@ -9,7 +9,8 @@ function App() {
     <Routes>
       <Route path="/" element={<EventsList />} />
       <Route path="/register/:id" element={<Register />} />
-      <Route path=":id" element={<EventParticipants />} />
+      <Route path="/events/:id" element={<EventParticipants />} />
+      <Route path="*" element={<h1>404 page not found</h1>} />
     </Routes>
   )
 }
