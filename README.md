@@ -1,6 +1,6 @@
 # Events App
 
-This repository contains the code for the Events App.
+This repository contains the code for the Events App Client.
 
 ## How to Run
 
