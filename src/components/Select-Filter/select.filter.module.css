@@ -1,4 +1,10 @@
-.select_wrapper{
+.select_wrapper {
     font-size: 16px;
     border-radius: 5px;
+}
+
+.filter_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
